@@ -141,6 +141,138 @@
       display:flex; align-items:flex-end; padding:14px;
       color:var(--muted); font-weight:700;
     }
+    .gallery-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      min-height:220px;
+      display:flex;
+      align-items:stretch;
+      cursor:pointer;
+      transition:transform .2s ease, border-color .2s ease;
+      padding:0;
+      text-align:left;
+    }
+    .gallery-card:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.22)}
+    .gallery-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .gallery-label{
+      position:absolute;
+      left:12px;
+      bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(0,0,0,.65);
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:700;
+      font-size:13px;
+      color:var(--text);
+    }
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(6,6,6,.75);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:120;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease;
+    }
+    .lightbox.open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .lightbox-panel{
+      width:min(980px, 94vw);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow: var(--shadow);
+      padding:16px;
+      position:relative;
+    }
+    .lightbox-close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(0,0,0,.6);
+      color:var(--text);
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .lightbox-main{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.2);
+    }
+    .lightbox-main img{
+      width:100%;
+      height:min(60vh, 520px);
+      object-fit:cover;
+      display:block;
+    }
+    .lightbox-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(0,0,0,.6);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .lightbox-arrow.prev{left:12px}
+    .lightbox-arrow.next{right:12px}
+    .lightbox-thumbs{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .lightbox-thumb{
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      cursor:pointer;
+      opacity:.7;
+      transition:opacity .2s ease, border-color .2s ease;
+    }
+    .lightbox-thumb.active{
+      opacity:1;
+      border-color:rgba(196,178,153,.6);
+    }
+    .lightbox-thumb img{
+      width:100%;
+      height:90px;
+      object-fit:cover;
+      display:block;
+    }
+    @media (max-width: 640px){
+      .lightbox-main img{height:48vh}
+      .lightbox-thumb img{height:70px}
+    }
     details{border:1px solid var(--line); border-radius:16px; padding:12px 14px; background:rgba(255,255,255,.03)}
     details + details{margin-top:10px}
     summary{cursor:pointer; font-weight:750}
@@ -402,16 +534,22 @@
         </div>
 
         <div class="gallery">
-          <div class="ph">Tournament Shirt Design</div>
-          <div class="ph">Baseball Jersey Mockup</div>
-          <div class="ph">Soccer Kit Concept</div>
-          <div class="ph">Basketball Set</div>
-          <div class="ph">American Football Jersey</div>
-          <div class="ph">Activewear / Hoodie</div>
+          <button class="gallery-card" type="button" data-group="tournament" aria-label="Open Tournament Kit gallery">
+            <img src="images/tour-1.jpg" alt="Tournament Kit" />
+            <span class="gallery-label">Tournament Kit</span>
+          </button>
+          <button class="gallery-card" type="button" data-group="baseball" aria-label="Open Baseball Uniform gallery">
+            <img src="images/base-1.jpg" alt="Baseball Uniform" />
+            <span class="gallery-label">Baseball Uniform</span>
+          </button>
+          <button class="gallery-card" type="button" data-group="soccer" aria-label="Open Soccer Kit gallery">
+            <img src="images/soc-1.jpg" alt="Soccer Kit" />
+            <span class="gallery-label">Soccer Kit</span>
+          </button>
         </div>
 
         <p class="note" style="margin-top:10px">
-          Tip: When you’re ready, upload images into the repo and replace these placeholders with &lt;img&gt; tags.
+          Tap any card to open a 3-image slideshow for that kit.
         </p>
       </div>
     </section>
@@ -588,6 +726,18 @@
     </footer>
   </main>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Portfolio slideshow">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close slideshow">✕</button>
+      <div class="lightbox-main">
+        <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+        <img id="lightboxMain" src="" alt="" />
+        <button class="lightbox-arrow next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+      </div>
+      <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+    </div>
+  </div>
+
   <script>
     // Prefill the quote form and jump to contact
     function openQuote(productName){
@@ -640,6 +790,99 @@
 
       success.style.display = "block";
       setTimeout(()=> success.style.display = "none", 7000);
+    });
+
+    // Portfolio lightbox gallery
+    const gallerySets = {
+      tournament: ["images/tour-1.jpg", "images/tour-2.jpg", "images/tour-3.jpg"],
+      baseball: ["images/base-1.jpg", "images/base-2.jpg", "images/base-3.jpg"],
+      soccer: ["images/soc-1.jpg", "images/soc-2.jpg", "images/soc-3.jpg"]
+    };
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxMain = document.getElementById('lightboxMain');
+    const lightboxThumbs = document.getElementById('lightboxThumbs');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    let currentGroup = [];
+    let currentIndex = 0;
+
+    function renderLightbox(){
+      if (!currentGroup.length) return;
+      lightboxMain.src = currentGroup[currentIndex];
+      lightboxMain.alt = `Portfolio image ${currentIndex + 1}`;
+      lightboxThumbs.innerHTML = '';
+
+      currentGroup.forEach((src, index) => {
+        const thumb = document.createElement('button');
+        thumb.type = 'button';
+        thumb.className = 'lightbox-thumb' + (index === currentIndex ? ' active' : '');
+        thumb.setAttribute('aria-label', `View image ${index + 1}`);
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Thumbnail ${index + 1}`;
+        thumb.appendChild(img);
+        thumb.addEventListener('click', () => {
+          currentIndex = index;
+          renderLightbox();
+        });
+        lightboxThumbs.appendChild(thumb);
+      });
+    }
+
+    function openLightbox(groupKey){
+      currentGroup = gallerySets[groupKey] || [];
+      currentIndex = 0;
+      renderLightbox();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showNext(){
+      currentIndex = (currentIndex + 1) % currentGroup.length;
+      renderLightbox();
+    }
+
+    function showPrev(){
+      currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+      renderLightbox();
+    }
+
+    document.querySelectorAll('.gallery-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const groupKey = card.getAttribute('data-group');
+        openLightbox(groupKey);
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        closeLightbox();
+      } else if (event.key === 'ArrowRight') {
+        showNext();
+      } else if (event.key === 'ArrowLeft') {
+        showPrev();
+      }
     });
 
   </script>
