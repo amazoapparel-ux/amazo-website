@@ -202,7 +202,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Amazo Apparel Home">
-        <img src="logo.png" alt="Amazo Apparel Logo" />
+        <img src="/logo.png" alt="Amazo Apparel Logo" />
       </a>
 
       <nav aria-label="Primary navigation">
@@ -228,7 +228,7 @@
           <h1>Custom Team Uniforms & Activewear — Made for Performance</h1>
           <p class="sub">
             Amazo Apparel produces premium custom sportswear for teams and tournaments:
-            <b>tournament shirts</b>, <b>baseball uniforms</b>, <b>American football</b>, <b>soccer</b>, <b>basketball</b>, and <b>training wear</b>.
+            <b>tournament shirts</b>, <b>baseball uniforms</b>, <b>American football kits</b>, <b>soccer kits</b>, <b>basketball sets</b>, and <b>training / activewear</b>.
             Request a quote in minutes — no store checkout needed.
           </p>
 
@@ -295,11 +295,11 @@
         <div class="catalog">
           <div class="card product">
             <span class="tag">Tournament</span>
-            <h3>Tournament / Event Shirts</h3>
+            <h3>Tournament Shirts</h3>
             <p>Sublimation-ready, breathable fabric, full custom design.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Tournament / Event Shirts')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Tournament%20%2F%20Event%20Shirts." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" onclick="openQuote('Tournament Shirts')">Request Quote</button>
+              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Tournament%20Shirts." target="_blank" rel="noopener">WhatsApp</a>
             </div>
           </div>
 
@@ -416,6 +416,28 @@
       </div>
     </section>
 
+    <section id="mockups">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h2>Mockups Showcase</h2>
+            <p>Upload your mockups below to preview and showcase them on the page.</p>
+          </div>
+          <a class="btn" href="#contact">Request a Quote</a>
+        </div>
+
+        <div class="card" style="padding:16px">
+          <label for="mockupUpload">Upload Mockup Images (JPG/PNG)</label>
+          <input id="mockupUpload" type="file" accept="image/*" multiple />
+          <p class="note" style="margin:0">Your images stay in your browser (not uploaded). Use this to preview before sharing.</p>
+        </div>
+
+        <div class="gallery" id="mockupGallery" style="margin-top:14px">
+          <div class="ph">Upload mockups to see previews here.</div>
+        </div>
+      </div>
+    </section>
+
     <section id="faq">
       <div class="wrap">
         <div class="section-title">
@@ -487,7 +509,7 @@
                   <label for="sport">Sport / Category</label>
                   <select id="sport" name="sport" required>
                     <option value="">Select…</option>
-                    <option>Tournament / Event Shirts</option>
+                    <option>Tournament Shirts</option>
                     <option>Baseball Uniforms</option>
                     <option>American Football Kits</option>
                     <option>Soccer Kits</option>
@@ -639,6 +661,58 @@
 
       success.style.display = "block";
       setTimeout(()=> success.style.display = "none", 7000);
+    });
+
+    // Mockups upload preview
+    const mockupUpload = document.getElementById('mockupUpload');
+    const mockupGallery = document.getElementById('mockupGallery');
+
+    function clearMockupGallery(){
+      mockupGallery.innerHTML = '';
+    }
+
+    function createMockupCard(src, name){
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.padding = '10px';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = name || 'Mockup preview';
+      img.style.width = '100%';
+      img.style.borderRadius = '12px';
+      img.style.display = 'block';
+
+      const caption = document.createElement('p');
+      caption.className = 'note';
+      caption.style.margin = '8px 0 0';
+      caption.textContent = name || 'Mockup image';
+
+      card.appendChild(img);
+      card.appendChild(caption);
+      return card;
+    }
+
+    mockupUpload.addEventListener('change', function(){
+      if (!mockupUpload.files || mockupUpload.files.length === 0) {
+        clearMockupGallery();
+        const placeholder = document.createElement('div');
+        placeholder.className = 'ph';
+        placeholder.textContent = 'Upload mockups to see previews here.';
+        mockupGallery.appendChild(placeholder);
+        return;
+      }
+
+      clearMockupGallery();
+      Array.from(mockupUpload.files).forEach((file) => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = function(event){
+          const card = createMockupCard(event.target.result, file.name);
+          mockupGallery.appendChild(card);
+        };
+        reader.readAsDataURL(file);
+      });
     });
   </script>
 </body>
