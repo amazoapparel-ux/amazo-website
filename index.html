@@ -554,6 +554,27 @@
       </div>
     </section>
 
+    <section id="mockups">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h2>Mockups Showcase</h2>
+            <p>Upload your mockups below to preview and showcase them on the page.</p>
+          </div>
+          <a class="btn" href="#contact">Request a Quote</a>
+        </div>
+
+        <div class="card" style="padding:16px">
+          <label for="mockupUpload">Upload Mockup Images (JPG/PNG)</label>
+          <input id="mockupUpload" type="file" accept="image/*" multiple />
+          <p class="note" style="margin:0">Your images stay in your browser (not uploaded). Use this to preview before sharing.</p>
+        </div>
+
+        <div class="gallery" id="mockupGallery" style="margin-top:14px">
+          <div class="ph">Upload mockups to see previews here.</div>
+        </div>
+      </div>
+    </section>
 
     <section id="faq">
       <div class="wrap">
@@ -885,6 +906,57 @@
       }
     });
 
+    // Mockups upload preview
+    const mockupUpload = document.getElementById('mockupUpload');
+    const mockupGallery = document.getElementById('mockupGallery');
+
+    function clearMockupGallery(){
+      mockupGallery.innerHTML = '';
+    }
+
+    function createMockupCard(src, name){
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.padding = '10px';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = name || 'Mockup preview';
+      img.style.width = '100%';
+      img.style.borderRadius = '12px';
+      img.style.display = 'block';
+
+      const caption = document.createElement('p');
+      caption.className = 'note';
+      caption.style.margin = '8px 0 0';
+      caption.textContent = name || 'Mockup image';
+
+      card.appendChild(img);
+      card.appendChild(caption);
+      return card;
+    }
+
+    mockupUpload.addEventListener('change', function(){
+      if (!mockupUpload.files || mockupUpload.files.length === 0) {
+        clearMockupGallery();
+        const placeholder = document.createElement('div');
+        placeholder.className = 'ph';
+        placeholder.textContent = 'Upload mockups to see previews here.';
+        mockupGallery.appendChild(placeholder);
+        return;
+      }
+
+      clearMockupGallery();
+      Array.from(mockupUpload.files).forEach((file) => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = function(event){
+          const card = createMockupCard(event.target.result, file.name);
+          mockupGallery.appendChild(card);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
   </script>
 </body>
 </html>
