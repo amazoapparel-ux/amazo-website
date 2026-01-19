@@ -3,54 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amazo Apparel — Custom Sportswear Manufacturer</title>
-  <meta name="description" content="Amazo Apparel makes custom team uniforms and activewear: tournament shirts, baseball, American football, soccer, basketball. Delivery 7–12 days. Request a quote on WhatsApp." />
+  <title>Amazo Apparel — Premium Custom Sportswear</title>
+  <meta name="description" content="Amazo Apparel delivers premium custom sportswear in 7–12 days. Explore our catalog, most loved products, and request a quote instantly." />
   <meta name="theme-color" content="#0C0B0B" />
 
   <style>
     :root{
       --bg:#0C0B0B;
-      --card:#121112;
-      --muted:#B9B5B0;
-      --text:#FDFDFD;
-      --gold:#C4B299;
+      --panel:#141213;
+      --card:#171516;
+      --muted:#B9B2AA;
+      --text:#FAF8F5;
+      --gold:#C8B79C;
       --red:#C10B31;
       --line:rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1100px;
+      --shadow: 0 18px 40px rgba(0,0,0,.45);
+      --radius:20px;
+      --max:1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 70% -10%, rgba(196,178,153,.12), transparent 55%),
-                  radial-gradient(900px 600px at 10% 0%, rgba(193,11,49,.10), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(900px 520px at 85% -10%, rgba(196,178,153,.16), transparent 60%),
+        radial-gradient(800px 520px at 5% 10%, rgba(193,11,49,.16), transparent 60%),
+        var(--bg);
       color:var(--text);
-      line-height:1.5;
+      line-height:1.6;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .pill{display:inline-flex; gap:10px; align-items:center; padding:10px 14px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03)}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center; padding:10px 16px; border:1px solid var(--line);
+      border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03); font-weight:600; font-size:13px;
+    }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 16px; border-radius:999px; border:1px solid var(--line);
+      padding:12px 18px; border-radius:999px; border:1px solid var(--line);
       background:rgba(255,255,255,.06); color:var(--text);
       cursor:pointer; transition:.2s transform, .2s background, .2s border;
-      font-weight:650;
+      font-weight:700; font-size:14px;
     }
     .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.20)}
     .btn.primary{background:var(--red); border-color:rgba(255,255,255,.14)}
     .btn.primary:hover{background:#a90a2b}
+    .btn.gold{background:rgba(200,183,156,.14); border-color:rgba(200,183,156,.45); color:var(--gold)}
+    .btn.gold:hover{background:rgba(200,183,156,.22)}
     .btn.ghost{background:transparent}
-    .btn.gold{background:rgba(196,178,153,.12); border-color:rgba(196,178,153,.35)}
-    .btn.gold:hover{background:rgba(196,178,153,.18)}
+
     header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(12,11,11,.65);
+      backdrop-filter: blur(14px);
+      background: rgba(12,11,11,.82);
       border-bottom:1px solid var(--line);
     }
     .nav{
@@ -60,65 +67,99 @@
     }
     .brand{display:flex; gap:12px; align-items:center}
     .brand img{height:36px; width:auto}
-    .brand b{letter-spacing:.3px}
-    nav{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
     nav a{
-      color:var(--muted); font-weight:600; font-size:14px;
-      padding:8px 10px; border-radius:12px;
+      color:var(--muted); font-weight:600; font-size:13px;
+      padding:8px 12px; border-radius:12px;
       border:1px solid transparent;
     }
     nav a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04)}
-    .hero{padding:46px 0 22px}
-    .grid{
+    .nav-actions{display:flex; gap:10px; align-items:center}
+
+    .hero{padding:48px 0 26px}
+    .hero-grid{
       display:grid; gap:18px;
-      grid-template-columns: 1.3fr .7fr;
+      grid-template-columns: 1.2fr .8fr;
       align-items:stretch;
     }
-    @media (max-width: 880px){
-      .grid{grid-template-columns:1fr}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
       nav{display:none}
     }
+
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .hero-card{padding:22px}
+    .hero-card{padding:26px}
     h1{
-      margin:12px 0 10px;
-      font-size: clamp(30px, 4vw, 48px);
+      margin:16px 0 12px;
+      font-size: clamp(32px, 4vw, 52px);
       line-height:1.05;
       letter-spacing:-.6px;
     }
     .sub{color:var(--muted); font-size:16px; max-width:70ch}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px}
-    .stat{padding:12px; border:1px solid var(--line); border-radius:16px; background:rgba(0,0,0,.20)}
-    .stat b{display:block; font-size:15px}
-    .stat span{color:var(--muted); font-size:13px}
-    .side{padding:18px}
-    .side h3{margin:0 0 10px}
-    .chips{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{padding:10px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-weight:650; background:rgba(0,0,0,.18)}
-    section{padding:34px 0}
-    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:14px}
-    .section-title h2{margin:0; font-size:24px}
-    .section-title p{margin:0; color:var(--muted)}
-    .catalog{
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:20px}
+    .metric{padding:14px; border:1px solid var(--line); border-radius:16px; background:rgba(0,0,0,.30)}
+    .metric b{display:block; font-size:15px}
+    .metric span{color:var(--muted); font-size:13px}
+
+    .hero-panel{padding:22px; display:flex; flex-direction:column; gap:16px}
+    .hero-panel h3{margin:0}
+    .hero-panel .list{display:grid; gap:12px}
+    .hero-panel .list-item{
+      padding:12px; border-radius:14px; border:1px solid var(--line); background:rgba(0,0,0,.25);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .hero-panel .list-item span{color:var(--muted); font-size:14px}
+    .hero-panel .contact-block{border-top:1px solid var(--line); padding-top:14px}
+
+    section{padding:36px 0}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:16px}
+    .section-title h2{margin:0; font-size:26px}
+    .section-title p{margin:6px 0 0; color:var(--muted); max-width:60ch}
+
+    .selections{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      gap:16px;
     }
-    @media (max-width: 980px){ .catalog{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width: 560px){ .catalog{grid-template-columns:1fr} }
-    .product{padding:16px}
-    .product .tag{display:inline-flex; gap:8px; align-items:center; padding:7px 10px; border-radius:999px;
-      border:1px solid rgba(196,178,153,.35); background:rgba(196,178,153,.10); color:var(--gold); font-weight:750; font-size:12px
+    @media (max-width: 980px){ .selections{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 560px){ .selections{grid-template-columns:1fr} }
+    .tile{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        radial-gradient(160px 120px at 70% 0%, rgba(193,11,49,.16), transparent 70%);
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
     }
-    .product h3{margin:10px 0 6px; font-size:18px}
+    .tile span{color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.12em}
+    .tile h3{margin:0; font-size:20px}
+    .tile p{margin:0; color:var(--muted); font-size:14px}
+
+    .loved{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media (max-width: 980px){ .loved{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 560px){ .loved{grid-template-columns:1fr} }
+    .product{padding:18px}
+    .product .tag{
+      display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(200,183,156,.35); background:rgba(200,183,156,.12); color:var(--gold); font-weight:750; font-size:12px
+    }
+    .product h3{margin:12px 0 6px; font-size:18px}
     .product p{margin:0; color:var(--muted); font-size:14px}
-    .product .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .product .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+
     .how{
       display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
     }
@@ -127,20 +168,12 @@
     .step{padding:16px}
     .step b{display:block; margin-bottom:6px}
     .step span{color:var(--muted); font-size:14px}
+
     .gallery{
       display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
     }
     @media (max-width: 980px){ .gallery{grid-template-columns:repeat(2,1fr)} }
     @media (max-width: 560px){ .gallery{grid-template-columns:1fr} }
-    .ph{
-      min-height:140px; border-radius:18px; border:1px solid var(--line);
-      background:
-        radial-gradient(600px 300px at 30% 20%, rgba(193,11,49,.10), transparent 60%),
-        radial-gradient(500px 260px at 70% 40%, rgba(196,178,153,.10), transparent 60%),
-        rgba(255,255,255,.03);
-      display:flex; align-items:flex-end; padding:14px;
-      color:var(--muted); font-weight:700;
-    }
     .gallery-card{
       position:relative;
       overflow:hidden;
@@ -174,6 +207,7 @@
       font-size:13px;
       color:var(--text);
     }
+
     .lightbox{
       position:fixed;
       inset:0;
@@ -193,7 +227,7 @@
     }
     .lightbox-panel{
       width:min(980px, 94vw);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
       border:1px solid var(--line);
       border-radius:20px;
       box-shadow: var(--shadow);
@@ -258,10 +292,12 @@
       cursor:pointer;
       opacity:.7;
       transition:opacity .2s ease, border-color .2s ease;
+      padding:0;
+      background:transparent;
     }
     .lightbox-thumb.active{
       opacity:1;
-      border-color:rgba(196,178,153,.6);
+      border-color:rgba(200,183,156,.6);
     }
     .lightbox-thumb img{
       width:100%;
@@ -273,10 +309,12 @@
       .lightbox-main img{height:48vh}
       .lightbox-thumb img{height:70px}
     }
+
     details{border:1px solid var(--line); border-radius:16px; padding:12px 14px; background:rgba(255,255,255,.03)}
     details + details{margin-top:10px}
     summary{cursor:pointer; font-weight:750}
     summary::marker{color:var(--gold)}
+
     .contact{
       display:grid; grid-template-columns: 1fr 1fr; gap:14px;
     }
@@ -295,10 +333,11 @@
     textarea{min-height:110px; resize:vertical}
     .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
     @media (max-width: 560px){ .row{grid-template-columns:1fr} }
+
     footer{padding:22px 0 28px; border-top:1px solid var(--line); color:var(--muted)}
     footer .foot{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between}
     .small{font-size:13px}
-    /* WhatsApp floating button */
+
     .wa-float{
       position:fixed; right:16px; bottom:16px; z-index:80;
       display:flex; gap:10px; align-items:center;
@@ -315,14 +354,12 @@
     }
     .wa-float span{color:var(--muted); font-weight:750; font-size:13px}
     .wa-float b{display:block; font-size:14px}
-    .hide{display:none}
     .note{color:var(--muted); font-size:13px}
     .divider{height:1px; background:var(--line); margin:12px 0}
   </style>
 </head>
 
 <body>
-  <!-- WhatsApp floating -->
   <a class="wa-float" id="waFloat" href="https://wa.me/923474611288" target="_blank" rel="noopener">
     <span class="wa-dot" aria-hidden="true"></span>
     <div>
@@ -338,6 +375,7 @@
       </a>
 
       <nav aria-label="Primary navigation">
+        <a href="#top">Home</a>
         <a href="#catalog">Catalog</a>
         <a href="#customization">Customization</a>
         <a href="#portfolio">Portfolio</a>
@@ -345,7 +383,7 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <div style="display:flex; gap:10px; align-items:center;">
+      <div class="nav-actions">
         <a class="btn gold" href="#contact">Request Quote</a>
         <a class="btn primary" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20custom%20sportswear." target="_blank" rel="noopener">WhatsApp Now</a>
       </div>
@@ -354,14 +392,13 @@
 
   <main id="top">
     <section class="hero">
-      <div class="wrap grid">
+      <div class="wrap hero-grid">
         <div class="card hero-card">
-          <div class="pill">🏭 Direct Manufacturing • 🎨 Custom Design • 🚚 Delivery: <b style="color:var(--gold)">7–12 days</b></div>
-          <h1>Custom Team Uniforms & Activewear — Made for Performance</h1>
+          <div class="pill">Premium build • Custom design • Delivery: <b style="color:var(--gold)">7–12 days</b></div>
+          <h1>Crafted Sportswear That Performs, Looks Premium, and Ships Fast.</h1>
           <p class="sub">
-            Amazo Apparel produces premium custom sportswear for teams and tournaments:
-            <b>tournament shirts</b>, <b>baseball uniforms</b>, <b>American football kits</b>, <b>soccer kits</b>, <b>basketball sets</b>, and <b>training / activewear</b>.
-            Request a quote in minutes — no store checkout needed.
+            Amazo Apparel delivers made-to-order sportswear with premium fabrics, bold branding, and consistent sizing.
+            From tournament shirts to full kit sets, get your order designed, approved, and delivered in under two weeks.
           </p>
 
           <div class="cta">
@@ -370,45 +407,49 @@
             <a class="btn ghost" href="mailto:amazoapparel@gmail.com">Email Us</a>
           </div>
 
-          <div class="stats">
-            <div class="stat">
-              <b>Fast Production</b>
-              <span>7–12 days delivery</span>
+          <div class="metrics">
+            <div class="metric">
+              <b>Delivery in 7–12 days</b>
+              <span>After design confirmation</span>
             </div>
-            <div class="stat">
-              <b>Custom Branding</b>
-              <span>Logos, names, numbers</span>
+            <div class="metric">
+              <b>High-end finishing</b>
+              <span>Premium trims, stitched detail</span>
             </div>
-            <div class="stat">
-              <b>Team Sizing</b>
-              <span>Kids to adult sizes</span>
+            <div class="metric">
+              <b>Built to last</b>
+              <span>Durable, performance fabrics</span>
             </div>
           </div>
         </div>
 
-        <div class="card side">
-          <h3 style="margin-top:0">Sportswear Categories</h3>
-          <p class="note">Pick a category below — then hit “Quote” to message us on WhatsApp with details.</p>
-          <div class="chips" style="margin-top:10px">
-            <a class="chip" href="#catalog">Tournament Shirts</a>
-            <a class="chip" href="#catalog">Baseball</a>
-            <a class="chip" href="#catalog">American Football</a>
-            <a class="chip" href="#catalog">Soccer</a>
-            <a class="chip" href="#catalog">Basketball</a>
-            <a class="chip" href="#catalog">Activewear</a>
+        <div class="card hero-panel">
+          <h3>What you get with Amazo</h3>
+          <div class="list">
+            <div class="list-item">
+              <strong>Design-ready support</strong>
+              <span>Share your logo, inspiration, or color palette. We refine it into a premium look.</span>
+            </div>
+            <div class="list-item">
+              <strong>Full customization</strong>
+              <span>Names, numbers, placements, and trims are designed to match your identity.</span>
+            </div>
+            <div class="list-item">
+              <strong>Reliable production</strong>
+              <span>Fast turnaround with clear approvals and consistent quality checks.</span>
+            </div>
           </div>
 
-          <div class="divider"></div>
-
-          <h3 style="margin:10px 0 8px">Quick Contact</h3>
-          <div class="note">
-            WhatsApp: <a href="https://wa.me/923474611288" target="_blank" rel="noopener" style="color:var(--text); font-weight:750;">+92 347 4611288</a><br>
-            Email: <a href="mailto:amazoapparel@gmail.com" style="color:var(--text); font-weight:750;">amazoapparel@gmail.com</a>
-          </div>
-
-          <div class="cta" style="margin-top:14px">
-            <a class="btn gold" href="#contact">Get Quote</a>
-            <a class="btn" href="#customization">How it works</a>
+          <div class="contact-block">
+            <p class="note" style="margin:0 0 10px">Quick contact</p>
+            <p class="note" style="margin:0">
+              WhatsApp: <a href="https://wa.me/923474611288" target="_blank" rel="noopener" style="color:var(--text); font-weight:750;">+92 347 4611288</a><br>
+              Email: <a href="mailto:amazoapparel@gmail.com" style="color:var(--text); font-weight:750;">amazoapparel@gmail.com</a>
+            </p>
+            <div class="cta" style="margin-top:14px">
+              <a class="btn gold" href="#contact">Start Quote</a>
+              <a class="btn" href="#customization">How it works</a>
+            </div>
           </div>
         </div>
       </div>
@@ -418,77 +459,134 @@
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Catalog (No Prices — Quote Based)</h2>
-            <p>Choose your sport and request a quote/order via WhatsApp or the form below.</p>
+            <h2>Check out our selections</h2>
+            <p>Choose a category and build your custom kit with premium fabric options and tailored fits.</p>
           </div>
           <a class="btn" href="#contact">Request Quote</a>
         </div>
 
-        <div class="catalog">
+        <div class="selections">
+          <div class="tile">
+            <div>
+              <span>Category 01</span>
+              <h3>Tournament Shirts</h3>
+              <p>Breathable sublimation-ready shirts built for events and leagues.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+          <div class="tile">
+            <div>
+              <span>Category 02</span>
+              <h3>Baseball Uniforms</h3>
+              <p>Full button jerseys, pants, and bold crest placement.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+          <div class="tile">
+            <div>
+              <span>Category 03</span>
+              <h3>American Football Kits</h3>
+              <p>Durable builds engineered for impact and movement.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+          <div class="tile">
+            <div>
+              <span>Category 04</span>
+              <h3>Soccer Kits</h3>
+              <p>Lightweight jersey + shorts sets with advanced airflow.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+          <div class="tile">
+            <div>
+              <span>Category 05</span>
+              <h3>Basketball Sets</h3>
+              <p>Quick-dry mesh styles with crisp numbering.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+          <div class="tile">
+            <div>
+              <span>Category 06</span>
+              <h3>Training / Activewear</h3>
+              <p>Tracksuits, tees, and warmups made for daily sessions.</p>
+            </div>
+            <a class="btn gold" href="#contact">Get Quote</a>
+          </div>
+        </div>
+
+        <p class="note" style="margin-top:12px">
+          Need something unique? Send your concept and we will design a custom solution.
+        </p>
+      </div>
+    </section>
+
+    <section id="loved">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h2>Most Loved Products</h2>
+            <p>Six of our most requested builds, crafted to highlight premium detail and performance.</p>
+          </div>
+          <a class="btn" href="#contact">Request Quote</a>
+        </div>
+
+        <div class="loved">
           <div class="card product">
             <span class="tag">Tournament</span>
-            <h3>Tournament Shirts</h3>
-            <p>Sublimation-ready, breathable fabric, full custom design.</p>
+            <h3>Velocity Pro Tournament Shirt</h3>
+            <p>Lightweight knit, ventilated side panels, full-sublimation finish.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Tournament Shirts')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Tournament%20Shirts." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Velocity Pro Tournament Shirt')">Get Quote</button>
             </div>
           </div>
 
           <div class="card product">
             <span class="tag">Baseball</span>
-            <h3>Baseball Uniforms</h3>
-            <p>Full-button jerseys, pants, and custom name/number options.</p>
+            <h3>Heritage Baseball Uniform</h3>
+            <p>Classic button-front style with reinforced seams.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Baseball Uniforms')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Baseball%20Uniforms." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Heritage Baseball Uniform')">Get Quote</button>
             </div>
           </div>
 
           <div class="card product">
             <span class="tag">American Football</span>
-            <h3>American Football Kits</h3>
-            <p>Durable fabric, pro fit, custom team branding.</p>
+            <h3>Gridiron Elite Kit</h3>
+            <p>Impact-ready build with stretch shoulders.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('American Football Kits')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20American%20Football%20Kits." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Gridiron Elite Kit')">Get Quote</button>
             </div>
           </div>
 
           <div class="card product">
             <span class="tag">Soccer</span>
-            <h3>Soccer Kits</h3>
-            <p>Jersey + shorts, lightweight, team crest + sponsors.</p>
+            <h3>Striker Flow Soccer Set</h3>
+            <p>Ultra-light set with breathable mesh zones.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Soccer Kits')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Soccer%20Kits." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Striker Flow Soccer Set')">Get Quote</button>
             </div>
           </div>
 
           <div class="card product">
             <span class="tag">Basketball</span>
-            <h3>Basketball Sets</h3>
-            <p>Moisture-wicking, breathable mesh look, full custom.</p>
+            <h3>Skyline Basketball Set</h3>
+            <p>Quick-dry mesh, bold numbering, premium trim.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Basketball Sets')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Basketball%20Sets." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Skyline Basketball Set')">Get Quote</button>
             </div>
           </div>
 
           <div class="card product">
             <span class="tag">Activewear</span>
-            <h3>Training / Activewear</h3>
-            <p>Tees, hoodies, tracksuits — custom branding available.</p>
+            <h3>Core Training Essentials</h3>
+            <p>Performance tee + short combo for daily training.</p>
             <div class="actions">
-              <button class="btn gold" onclick="openQuote('Training / Activewear')">Request Quote</button>
-              <a class="btn" href="https://wa.me/923474611288?text=Hi%20Amazo%20Apparel!%20I%20want%20a%20quote%20for%20Training%20%2F%20Activewear." target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn gold" type="button" onclick="openProductQuote('Core Training Essentials')">Get Quote</button>
             </div>
           </div>
         </div>
-
-        <p class="note" style="margin-top:12px">
-          Want something not listed? No problem — message us your requirements and we’ll guide you.
-        </p>
       </div>
     </section>
 
@@ -496,28 +594,28 @@
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Customization Process</h2>
-            <p>Simple steps. We’ll help you finalize design and sizing.</p>
+            <h2>Customization / How it works</h2>
+            <p>Four simple steps from concept to delivery.</p>
           </div>
           <a class="btn" href="#contact">Start a Quote</a>
         </div>
 
         <div class="how">
           <div class="card step">
-            <b>1) Choose Sport & Product</b>
-            <span>Select your category (soccer, baseball, etc.) and the product type.</span>
+            <b>1) Choose a category</b>
+            <span>Select your product type and preferred fabric feel.</span>
           </div>
           <div class="card step">
-            <b>2) Share Logo / Design</b>
-            <span>Send your logo, colors, and any reference designs (PNG/PDF/AI).</span>
+            <b>2) Share design details</b>
+            <span>Send your logo, colors, and any inspiration images.</span>
           </div>
           <div class="card step">
-            <b>3) Confirm Sizes & Quantity</b>
-            <span>We help with a size chart and team breakdown (kids to adult).</span>
+            <b>3) Approve sizes & mockup</b>
+            <span>We confirm sizing and send digital mockups for approval.</span>
           </div>
           <div class="card step">
-            <b>4) Production & Delivery</b>
-            <span>Production starts after approval. Delivery typically <b>7–12 days</b>.</span>
+            <b>4) Production & delivery</b>
+            <span>Production begins after approval. Delivery in <b>7–12 days</b>.</span>
           </div>
         </div>
       </div>
@@ -528,14 +626,14 @@
         <div class="section-title">
           <div>
             <h2>Portfolio / Gallery</h2>
-            <p>Add your real photos or mockups later — placeholders are here for now.</p>
+            <p>Tap a category to view the lightbox slideshow. Replace images as needed.</p>
           </div>
           <a class="btn" href="#contact">Get Yours Made</a>
         </div>
 
         <div class="gallery">
           <button class="gallery-card" type="button" data-group="tournament" aria-label="Open Tournament Kit gallery">
-            <img src="images/tour-1.jpg" alt="Tournament Kit" />
+            <img src="./images/tour-1.jpg" alt="Tournament Kit" />
             <span class="gallery-label">Tournament Kit</span>
           </button>
           <button class="gallery-card" type="button" data-group="baseball" aria-label="Open Baseball Uniforms gallery">
@@ -543,7 +641,7 @@
             <span class="gallery-label">Baseball Uniforms</span>
           </button>
           <button class="gallery-card" type="button" data-group="soccer" aria-label="Open Soccer Kit gallery">
-            <img src="images/soc-1.jpg" alt="Soccer Kit" />
+            <img src="./images/soc-1.jpg" alt="Soccer Kit" />
             <span class="gallery-label">Soccer Kit</span>
           </button>
         </div>
@@ -554,34 +652,12 @@
       </div>
     </section>
 
-    <section id="mockups">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Mockups Showcase</h2>
-            <p>Upload your mockups below to preview and showcase them on the page.</p>
-          </div>
-          <a class="btn" href="#contact">Request a Quote</a>
-        </div>
-
-        <div class="card" style="padding:16px">
-          <label for="mockupUpload">Upload Mockup Images (JPG/PNG)</label>
-          <input id="mockupUpload" type="file" accept="image/*" multiple />
-          <p class="note" style="margin:0">Your images stay in your browser (not uploaded). Use this to preview before sharing.</p>
-        </div>
-
-        <div class="gallery" id="mockupGallery" style="margin-top:14px">
-          <div class="ph">Upload mockups to see previews here.</div>
-        </div>
-      </div>
-    </section>
-
     <section id="faq">
       <div class="wrap">
         <div class="section-title">
           <div>
             <h2>FAQ</h2>
-            <p>Quick answers for teams, clubs, schools, and tournaments.</p>
+            <p>Quick answers to help you plan your order.</p>
           </div>
         </div>
 
@@ -591,18 +667,18 @@
         </details>
 
         <details class="card">
-          <summary>Do you help with design?</summary>
-          <p class="note">Yes. Share your logo and ideas — we can help finalize a clean, professional uniform design.</p>
+          <summary>Can you help finalize the design?</summary>
+          <p class="note">Yes. Share your ideas, logo, and colors and we will prepare a premium layout.</p>
         </details>
 
         <details class="card">
-          <summary>Can we add names and numbers?</summary>
-          <p class="note">Absolutely. Provide player list and sizes — we’ll guide placement and style.</p>
+          <summary>What do you need to start production?</summary>
+          <p class="note">We confirm the product type, quantities, sizes, artwork, and delivery address before production.</p>
         </details>
 
         <details class="card">
           <summary>Do you ship internationally?</summary>
-          <p class="note">Tell us your city/country and required deadline — we’ll confirm best delivery options.</p>
+          <p class="note">Yes. Share your destination and timeline, and we will recommend the best shipping option.</p>
         </details>
       </div>
     </section>
@@ -626,7 +702,7 @@
                   <input id="name" name="name" placeholder="e.g., Ali Khan" required />
                 </div>
                 <div>
-                  <label for="team">Team / Club / School (Optional)</label>
+                  <label for="team">Organization (Optional)</label>
                   <input id="team" name="team" placeholder="e.g., Falcon FC" />
                 </div>
               </div>
@@ -709,7 +785,7 @@
             <h3 style="margin-top:0">Direct Contact</h3>
             <p class="note">
               <b style="color:var(--text)">Amazo Apparel</b><br>
-              Custom sportswear manufacturer for teams & tournaments.<br><br>
+              Premium sportswear manufacturer for clubs, leagues, and training centers.<br><br>
               <b>WhatsApp:</b> <a href="https://wa.me/923474611288" target="_blank" rel="noopener" style="color:var(--text); font-weight:750;">+92 347 4611288</a><br>
               <b>Email:</b> <a href="mailto:amazoapparel@gmail.com" style="color:var(--text); font-weight:750;">amazoapparel@gmail.com</a><br>
               <b>Delivery:</b> 7–12 days
@@ -719,8 +795,8 @@
 
             <h3 style="margin:0 0 8px">What to send on WhatsApp</h3>
             <ul class="note" style="margin:0; padding-left:18px">
-              <li>Sport + product type</li>
-              <li>Quantity + sizes</li>
+              <li>Product category + fabric preference</li>
+              <li>Quantity + size breakdown</li>
               <li>Colors + logo file</li>
               <li>Deadline + delivery city</li>
             </ul>
@@ -737,7 +813,7 @@
     <footer>
       <div class="wrap foot">
         <div class="small">
-          <b style="color:var(--text)">Amazo Apparel</b> • Custom Sportswear Manufacturer • Delivery 7–12 days
+          <b style="color:var(--text)">Amazo Apparel</b> • Premium Sportswear Manufacturer • Delivery 7–12 days
         </div>
         <div class="small">
           <a href="mailto:amazoapparel@gmail.com">amazoapparel@gmail.com</a> •
@@ -760,14 +836,18 @@
   </div>
 
   <script>
-    // Prefill the quote form and jump to contact
     function openQuote(productName){
       const sport = document.getElementById('sport');
       if (sport) sport.value = productName;
       location.hash = '#contact';
     }
 
-    // WhatsApp quote generator
+    function openProductQuote(productName){
+      const message = `Hi Amazo Apparel! I'm interested in the Most Loved Product: ${productName}. Please share fabric options, minimum order quantity, and a quote.`;
+      const url = `https://wa.me/923474611288?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener');
+    }
+
     const form = document.getElementById('quoteForm');
     const success = document.getElementById('successMsg');
 
@@ -790,7 +870,7 @@
         "Hi Amazo Apparel! I want a quote / order request.",
         "",
         `Name: ${name}`,
-        team ? `Team/Club: ${team}` : "",
+        team ? `Organization: ${team}` : "",
         `My WhatsApp: ${whatsapp}`,
         `Email: ${email}`,
         "",
@@ -803,7 +883,7 @@
         "",
         notes ? `Notes: ${notes}` : "",
         "",
-        "Please share total price, production time (7–12 days), and next steps. धन्यवाद / Thanks!"
+        "Please share total price, production time (7–12 days), and next steps. Thanks!"
       ].filter(Boolean).join("\n");
 
       const url = "https://wa.me/923474611288?text=" + encodeURIComponent(lines);
@@ -813,11 +893,10 @@
       setTimeout(()=> success.style.display = "none", 7000);
     });
 
-    // Portfolio lightbox gallery
     const gallerySets = {
-      tournament: ["images/tour-1.jpg", "images/tour-2.jpg", "images/tour-3.jpg"],
+      tournament: ["./images/tour-1.jpg", "./images/tour-2.jpg", "./images/tour-3.jpg"],
       baseball: ["./images/baseball-1.png", "./images/baseball-2.png", "./images/baseball-3.png"],
-      soccer: ["images/soc-1.jpg", "images/soc-2.jpg", "images/soc-3.jpg"]
+      soccer: ["./images/soc-1.jpg", "./images/soc-2.jpg", "./images/soc-3.jpg"]
     };
 
     const lightbox = document.getElementById('lightbox');
@@ -904,58 +983,6 @@
       } else if (event.key === 'ArrowLeft') {
         showPrev();
       }
-    });
-
-    // Mockups upload preview
-    const mockupUpload = document.getElementById('mockupUpload');
-    const mockupGallery = document.getElementById('mockupGallery');
-
-    function clearMockupGallery(){
-      mockupGallery.innerHTML = '';
-    }
-
-    function createMockupCard(src, name){
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.style.padding = '10px';
-
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = name || 'Mockup preview';
-      img.style.width = '100%';
-      img.style.borderRadius = '12px';
-      img.style.display = 'block';
-
-      const caption = document.createElement('p');
-      caption.className = 'note';
-      caption.style.margin = '8px 0 0';
-      caption.textContent = name || 'Mockup image';
-
-      card.appendChild(img);
-      card.appendChild(caption);
-      return card;
-    }
-
-    mockupUpload.addEventListener('change', function(){
-      if (!mockupUpload.files || mockupUpload.files.length === 0) {
-        clearMockupGallery();
-        const placeholder = document.createElement('div');
-        placeholder.className = 'ph';
-        placeholder.textContent = 'Upload mockups to see previews here.';
-        mockupGallery.appendChild(placeholder);
-        return;
-      }
-
-      clearMockupGallery();
-      Array.from(mockupUpload.files).forEach((file) => {
-        if (!file.type.startsWith('image/')) return;
-        const reader = new FileReader();
-        reader.onload = function(event){
-          const card = createMockupCard(event.target.result, file.name);
-          mockupGallery.appendChild(card);
-        };
-        reader.readAsDataURL(file);
-      });
     });
   </script>
 </body>
